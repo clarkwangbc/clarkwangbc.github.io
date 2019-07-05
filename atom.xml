@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-05T09:13:05.044Z</updated>
+  <updated>2019-07-05T11:38:52.120Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,23 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/07/05/hello-world/"/>
-    <id>http://yoursite.com/2019/07/05/hello-world/</id>
-    <published>2019-07-05T09:13:05.044Z</published>
-    <updated>2019-07-05T09:13:05.044Z</updated>
+    <title>如何建立一个 Markdown Notebook</title>
+    <link href="http://yoursite.com/2019/07/05/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAMarkdown-Notebook/"/>
+    <id>http://yoursite.com/2019/07/05/如何建立一个Markdown-Notebook/</id>
+    <published>2019-07-05T11:27:46.000Z</published>
+    <updated>2019-07-05T11:38:52.120Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>这是我个人的Markdown Notebook，主要记录我研究过程中有关编程开发的经验记录。之前我一直使用OneNote进行记录，但是OneNote对代码的支持太烂了，而且没有linux客户端，因此我决定使用Typora+Git+Github的方式来建立一个跨平台的个人笔记系统。</p><p>关于这个系统的建立，可以参见这个<a href="https://www.bilibili.com/read/cv2230341/" target="_blank" rel="noopener">链接</a>。</p><p>关于如何建立Git和Github的链接，可以参考这个<a href="https://www.cnblogs.com/woider/p/6533709.html" target="_blank" rel="noopener">链接</a>。</p><p>关于如何使用Github建立自己的图床，可以参考这个<a href="https://www.jianshu.com/p/33eeacac3344" target="_blank" rel="noopener">链接</a>。</p><p>接下来将会介绍整个笔记本的建立。</p><h2 id="建立自己GitHub的私有仓库"><a href="#建立自己GitHub的私有仓库" class="headerlink" title="建立自己GitHub的私有仓库"></a>建立自己GitHub的私有仓库</h2><ol><li><p>首先进入GitHub的官网，在个人仓库页面里，创建一个私人的仓库。如下图所示：</p><p><img src="https://user-images.githubusercontent.com/3062168/60719924-b17b5100-9f5b-11e9-9d88-00e9ea7b02ba.png" alt></p></li><li><p>然后进入项目页面，将该仓库克隆到本地。注意克隆到本地时，需要先进入到自己想要存该仓库的本地地址。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:...</span><br></pre></td></tr></table></figure></li><li><p>设置Typora的文件树视图，然后打开自己的仓库，就可以了。</p></li><li><p>使用Git推送笔记</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;notes&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></li><li><p>一些需要注意的地方</p><ul><li>新建文件、目录操作都可以在文件树视图里面进行，不小心关闭了软件，只需要打开最近打开的文件，目录树自动就加载出来了。</li><li>本地图片放到同级目录下，就可以使用相对路径引入，在本地看笔记很方便。</li><li>同步github比较麻烦，需要自己提交至github。而且笔记的分享功能没有了。</li></ul></li></ol><h2 id="建立Git和Github的连接"><a href="#建立Git和Github的连接" class="headerlink" title="建立Git和Github的连接"></a>建立Git和Github的连接</h2><ol><li><p>安装Git</p><ul><li><p>ubuntu安装Git</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></li><li><p>查看Git版本信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br></pre></td></tr></table></figure></li><li><p>配置Git用户信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"name"</span></span><br><span class="line">git config --global user.email <span class="string">"name@email.com"</span></span><br></pre></td></tr></table></figure></li></ul></li><li><p>开启SSH服务</p><ul><li><p>Ubuntu安装SSH</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure></li><li><p>查看SSH服务状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep sshd</span><br></pre></td></tr></table></figure><p>会显示如下，其中sshd表示ssh-server已启动</p><p><img src="https://user-images.githubusercontent.com/3062168/60720005-f0a9a200-9f5b-11e9-8a08-b796c263e8cb.png" alt></p></li></ul></li><li><p>生成SSH Key</p><ul><li><p>使用命令查看 SSH Key 是否存在，若存在则忽略这一步</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure></li><li><p>生成SSH Key，生成会让你填写 passphrase，连按三次回车跳过即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"name@email.com"</span></span><br></pre></td></tr></table></figure></li></ul></li><li><p>进入你刚才生成SSH Key的目录，查看 id_rsa 和 id_rsa.pub 文件</p></li><li><p>打开 id_rsa.pub 文件，并将内容复制到剪贴板</p></li><li><p>登录 GitHub，打开settings 页面，选择 SSH and GPG keys 选项，新建一个SSH key，名字可以随便起，然后将刚才复制的SSH Key粘贴到下面的key栏中，然后点击添加就完成了。添加之后mac/linux就可以建立本地的Git与Github的连接了。</p></li></ol><h2 id="使用Github建立图床"><a href="#使用Github建立图床" class="headerlink" title="使用Github建立图床"></a>使用Github建立图床</h2><ol><li>方法1：类似于建立私有仓库。图片使用git上传后，网页浏览复制图片URL，将URL中的blob替换成raw即可。</li><li>方法2：打开图片仓库，点击issue，拖拽需要上传的屠刀到issue的文本框内，等待上传完毕后，便会显示一个url，复制那个url就可以了。</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;p&gt;这是我个人的Markdown Notebook，主要记录我研究过程中有关编程开发的经验记录。之前我一直使用OneNote进行记录，但是OneNote对代码的支持太烂了，而且没有linux客户端，因此我决定使用Typora+Git+Github的方式来建立一个跨平台的个人笔记
       
     
     </summary>
     
+    
+      <category term="-linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/07/05/hello-world/"/>
+    <id>http://yoursite.com/2019/07/05/hello-world/</id>
+    <published>2019-07-05T11:10:24.000Z</published>
+    <updated>2019-07-05T11:31:07.394Z</updated>
+    
+    <content type="html"><![CDATA[<p>不知不觉博士的第四年也快要结束，这也是我在清华的第八个年头，时光荏苒，我也不再年轻，却仍然一事无成，不由有些落寞。过去的日子湮灭在时光里，难以再寻觅，不禁有些可惜，遂想用此博客来记录接下来的点滴，而这也是Jasmine所一直期望我所做的。</p><p>所以这个博客，一方面能够帮助我记录我学术道路上一些心得和体会，另一方面我也会添加一些我个人的爱好和照片在里面。</p><p>我目前的研究内容主要是探索人工智能与人的交互，因此会涉及到人工智能的一些简单的开发，我并非计算机科班出生，有些方面的知识还会有些欠缺，因此可能会对网络上他人的一些内容进行重新整理并写在这里，供我自己以后参考学习；同时我还是在我的博客写写一些关于人机交互、人因工程、实验设计方面的知识。由于我之前有过一些虚拟现实和游戏相关的研究，可能也会在博客中谈谈自己的看法。</p><p>至于个人方面的内容，则纯粹是个人的爱好了。我比较喜欢打游戏和看电影，因此我会不定期的更新我对一些游戏的评测和电源的影评。我也比较喜欢动手拼装，所以也会有一些玩具和电脑的组装。有时候，我会和Jasmine一起外出游玩，如果拍到一些有趣的照片我也会放在这里。</p><p>这些算是我个人生活和学术一些记录，但如若能够对他人有些帮助，那也是非常值得的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;不知不觉博士的第四年也快要结束，这也是我在清华的第八个年头，时光荏苒，我也不再年轻，却仍然一事无成，不由有些落寞。过去的日子湮灭在时光里，难以再寻觅，不禁有些可惜，遂想用此博客来记录接下来的点滴，而这也是Jasmine所一直期望我所做的。&lt;/p&gt;
+&lt;p&gt;所以这个博客，一方面
+      
+    
+    </summary>
+    
+    
+      <category term="-杂记" scheme="http://yoursite.com/tags/%E6%9D%82%E8%AE%B0/"/>
     
   </entry>
   

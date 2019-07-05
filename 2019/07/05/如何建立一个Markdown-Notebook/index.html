@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 如何建立一个 Markdown Notebook · Hexo</title><meta name="description" content="如何建立一个 Markdown Notebook - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/clarkwangbc" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">如何建立一个 Markdown Notebook</h1><div class="post-info">Jul 5, 2019</div><div class="post-content"><p>这是我个人的Markdown Notebook，主要记录我研究过程中有关编程开发的经验记录。之前我一直使用OneNote进行记录，但是OneNote对代码的支持太烂了，而且没有linux客户端，因此我决定使用Typora+Git+Github的方式来建立一个跨平台的个人笔记系统。</p>
+<p>关于这个系统的建立，可以参见这个<a href="https://www.bilibili.com/read/cv2230341/" target="_blank" rel="noopener">链接</a>。</p>
+<p>关于如何建立Git和Github的链接，可以参考这个<a href="https://www.cnblogs.com/woider/p/6533709.html" target="_blank" rel="noopener">链接</a>。</p>
+<p>关于如何使用Github建立自己的图床，可以参考这个<a href="https://www.jianshu.com/p/33eeacac3344" target="_blank" rel="noopener">链接</a>。</p>
+<p>接下来将会介绍整个笔记本的建立。</p>
+<h2 id="建立自己GitHub的私有仓库"><a href="#建立自己GitHub的私有仓库" class="headerlink" title="建立自己GitHub的私有仓库"></a>建立自己GitHub的私有仓库</h2><ol>
+<li><p>首先进入GitHub的官网，在个人仓库页面里，创建一个私人的仓库。如下图所示：</p>
+<p><img src="https://user-images.githubusercontent.com/3062168/60719924-b17b5100-9f5b-11e9-9d88-00e9ea7b02ba.png" alt></p>
+</li>
+<li><p>然后进入项目页面，将该仓库克隆到本地。注意克隆到本地时，需要先进入到自己想要存该仓库的本地地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置Typora的文件树视图，然后打开自己的仓库，就可以了。</p>
+</li>
+<li><p>使用Git推送笔记</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;notes&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一些需要注意的地方</p>
+<ul>
+<li>新建文件、目录操作都可以在文件树视图里面进行，不小心关闭了软件，只需要打开最近打开的文件，目录树自动就加载出来了。</li>
+<li>本地图片放到同级目录下，就可以使用相对路径引入，在本地看笔记很方便。</li>
+<li>同步github比较麻烦，需要自己提交至github。而且笔记的分享功能没有了。</li>
+</ul>
+</li>
+</ol>
+<h2 id="建立Git和Github的连接"><a href="#建立Git和Github的连接" class="headerlink" title="建立Git和Github的连接"></a>建立Git和Github的连接</h2><ol>
+<li><p>安装Git</p>
+<ul>
+<li><p>ubuntu安装Git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看Git版本信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置Git用户信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"name"</span></span><br><span class="line">git config --global user.email <span class="string">"name@email.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>开启SSH服务</p>
+<ul>
+<li><p>Ubuntu安装SSH</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看SSH服务状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep sshd</span><br></pre></td></tr></table></figure>
+
+<p>会显示如下，其中sshd表示ssh-server已启动</p>
+<p><img src="https://user-images.githubusercontent.com/3062168/60720005-f0a9a200-9f5b-11e9-8a08-b796c263e8cb.png" alt></p>
+</li>
+</ul>
+</li>
+<li><p>生成SSH Key</p>
+<ul>
+<li><p>使用命令查看 SSH Key 是否存在，若存在则忽略这一步</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成SSH Key，生成会让你填写 passphrase，连按三次回车跳过即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"name@email.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>进入你刚才生成SSH Key的目录，查看 id_rsa 和 id_rsa.pub 文件</p>
+</li>
+<li><p>打开 id_rsa.pub 文件，并将内容复制到剪贴板</p>
+</li>
+<li><p>登录 GitHub，打开settings 页面，选择 SSH and GPG keys 选项，新建一个SSH key，名字可以随便起，然后将刚才复制的SSH Key粘贴到下面的key栏中，然后点击添加就完成了。添加之后mac/linux就可以建立本地的Git与Github的连接了。</p>
+</li>
+</ol>
+<h2 id="使用Github建立图床"><a href="#使用Github建立图床" class="headerlink" title="使用Github建立图床"></a>使用Github建立图床</h2><ol>
+<li>方法1：类似于建立私有仓库。图片使用git上传后，网页浏览复制图片URL，将URL中的blob替换成raw即可。</li>
+<li>方法2：打开图片仓库，点击issue，拖拽需要上传的屠刀到issue的文本框内，等待上传完毕后，便会显示一个url，复制那个url就可以了。</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/07/05/hello-world/" class="next">下一篇</a></div><div class="copyright"><p>© 2019 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
