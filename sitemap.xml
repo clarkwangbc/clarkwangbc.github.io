@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-07-05T13:50:09.560Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/05/Ubuntu%E5%AE%89%E8%A3%85NVIDIA%E9%A9%B1%E5%8A%A8/</loc>
     
     <lastmod>2019-07-05T13:38:34.328Z</lastmod>
