@@ -4,7 +4,21 @@
   <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
-    <lastmod>2019-07-05T13:55:05.043Z</lastmod>
+    <lastmod>2019-07-06T09:47:30.926Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2019-07-06T09:46:48.869Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2019-07-06T09:46:29.683Z</lastmod>
     
   </url>
   
@@ -33,20 +47,6 @@
     <loc>http://yoursite.com/2019/07/05/hello-world/</loc>
     
     <lastmod>2019-07-05T13:37:52.679Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2019-07-05T13:20:44.445Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2019-07-05T13:20:41.586Z</lastmod>
     
   </url>
   

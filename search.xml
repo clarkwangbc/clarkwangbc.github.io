@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Ubuntu 搜狗拼音输入法候选乱码]]></title>
+    <url>%2F2019%2F07%2F05%2FUbuntu-%E6%90%9C%E7%8B%97%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95%E5%80%99%E9%80%89%E4%B9%B1%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[终端输入如下命令： 12cd ~/.configsudo rm -rf SogouPY* sogou* 然后注销即可(注意，这里必须是注销，不注销直接重启并不管用)]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>输入法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu安装NVIDIA驱动]]></title>
+    <url>%2F2019%2F07%2F05%2FUbuntu%E5%AE%89%E8%A3%85NVIDIA%E9%A9%B1%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[我最近在使用Ubuntu的时候，不知道为什么，系统隔三差五地掉显卡驱动，所以在这里把装驱动的流程记录下来，供以后使用。 方法1：系统自动更新系统设置-&gt;软件更新-&gt;附加驱动-&gt;选择nvidia最新驱动-&gt;应用更改 方法2：官网下载自行编译先在官网下载好对应的显卡驱动。 Nvidia中文官网是 http://www.nvidia.cn/page/home.html 1. 打开终端，先删除旧的驱动1sudo apt-get purge nvidia* 2. 禁用自带的 nouveau nvidia 驱动首先通过以下命令创建一个文件 1sudo vim /etc/modprobe.d/blacklist-nouveau.conf 然后添加如下内容： 12blacklist nouveauoptions nouveau modeset=0 再更新一下 1sudo update-initramfs -u 修改后需要重启系统。确认下Nouveau是否已经被你干掉，使用命令： 1lsmod | grep nouveau 3.重启系统至文本模式，关闭 X-Window也可先进入图形桌面再运行init 3进入文本模式，再安装下载的驱动就无问题。 首先我们需要结束x-window的服务，否则驱动将无法正常安装。 关闭X-Window， 1sudo service lightdm stop 然后切换tty1控制台：Ctrl+Alt+F1即可。 4.安装驱动接下来就是最关键的一步了： 1sudo./NVIDIA.run 开始安装，安装过程比较快。根据提示选择即可最后安装完毕后，重新启动X-Window： 1sudo service lightdm start 然后Ctrl+Alt+F7进入图形界面； 最后测试一下是否安装成功 12nvidia-sminvidia-settings 方法3：添加官方ppa源快捷键ctrl+alt+T打开命令终端，加入官方ppa源。 1sudo add-apt-repository ppa:graphics-drivers/ppa 需要输入密码并按enter键确认。之后刷新软件库并安装最新驱动。 12sudo apt-get updatesudo apt-get install nvidia-367nvidia-settings nvidia-prime 安装完成后通过下面命令查看是否安装成功。 1nvidia-settings 注意安装完成后要重启，有如下效果则安装完成，否则就说明安装有问题，尝试关闭UEFI保护试试。 原文链接]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>驱动</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何建立一个 Markdown Notebook]]></title>
+    <url>%2F2019%2F07%2F05%2F%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAMarkdown-Notebook%2F</url>
+    <content type="text"><![CDATA[这是我个人的Markdown Notebook，主要记录我研究过程中有关编程开发的经验记录。之前我一直使用OneNote进行记录，但是OneNote对代码的支持太烂了，而且没有linux客户端，因此我决定使用Typora+Git+Github的方式来建立一个跨平台的个人笔记系统。 关于这个系统的建立，可以参见这个链接。 关于如何建立Git和Github的链接，可以参考这个链接。 关于如何使用Github建立自己的图床，可以参考这个链接。 接下来将会介绍整个笔记本的建立。 建立自己GitHub的私有仓库 首先进入GitHub的官网，在个人仓库页面里，创建一个私人的仓库。如下图所示： 然后进入项目页面，将该仓库克隆到本地。注意克隆到本地时，需要先进入到自己想要存该仓库的本地地址。 1git clone git@github.com:... 设置Typora的文件树视图，然后打开自己的仓库，就可以了。 使用Git推送笔记 123git add .git commit -m &quot;notes&quot;git push 一些需要注意的地方 新建文件、目录操作都可以在文件树视图里面进行，不小心关闭了软件，只需要打开最近打开的文件，目录树自动就加载出来了。 本地图片放到同级目录下，就可以使用相对路径引入，在本地看笔记很方便。 同步github比较麻烦，需要自己提交至github。而且笔记的分享功能没有了。 建立Git和Github的连接 安装Git ubuntu安装Git 1sudo apt-get install git 查看Git版本信息 1git version 配置Git用户信息 12git config --global user.name "name"git config --global user.email "name@email.com" 开启SSH服务 Ubuntu安装SSH 1apt-get install ssh 查看SSH服务状态 1ps -e | grep sshd 会显示如下，其中sshd表示ssh-server已启动 生成SSH Key 使用命令查看 SSH Key 是否存在，若存在则忽略这一步 1ls -al ~/.ssh 生成SSH Key，生成会让你填写 passphrase，连按三次回车跳过即可 1ssh-keygen -t rsa -C "name@email.com" 进入你刚才生成SSH Key的目录，查看 id_rsa 和 id_rsa.pub 文件 打开 id_rsa.pub 文件，并将内容复制到剪贴板 登录 GitHub，打开settings 页面，选择 SSH and GPG keys 选项，新建一个SSH key，名字可以随便起，然后将刚才复制的SSH Key粘贴到下面的key栏中，然后点击添加就完成了。添加之后mac/linux就可以建立本地的Git与Github的连接了。 使用Github建立图床 方法1：类似于建立私有仓库。图片使用git上传后，网页浏览复制图片URL，将URL中的blob替换成raw即可。 方法2：打开图片仓库，点击issue，拖拽需要上传的屠刀到issue的文本框内，等待上传完毕后，便会显示一个url，复制那个url就可以了。]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F07%2F05%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[不知不觉博士的第四年也快要结束，这也是我在清华的第八个年头，时光荏苒，我也不再年轻，却仍然一事无成，不由有些落寞。过去的日子湮灭在时光里，难以再寻觅，不禁有些可惜，遂想用此博客来记录接下来的点滴，而这也是Jasmine所一直期望我所做的。 所以这个博客，一方面能够帮助我记录我学术道路上一些心得和体会，另一方面我也会添加一些我个人的爱好和照片在里面。 我目前的研究内容主要是探索人工智能与人的交互，因此会涉及到人工智能的一些简单的开发，我并非计算机科班出生，有些方面的知识还会有些欠缺，因此可能会对网络上他人的一些内容进行重新整理并写在这里，供我自己以后参考学习；同时我还是在我的博客写写一些关于人机交互、人因工程、实验设计方面的知识。由于我之前有过一些虚拟现实和游戏相关的研究，可能也会在博客中谈谈自己的看法。 至于个人方面的内容，则纯粹是个人的爱好了。我比较喜欢打游戏和看电影，因此我会不定期的更新我对一些游戏的评测和电源的影评。我也比较喜欢动手拼装，所以也会有一些玩具和电脑的组装。有时候，我会和Jasmine一起外出游玩，如果拍到一些有趣的照片我也会放在这里。 这些算是我个人生活和学术一些记录，但如若能够对他人有些帮助，那也是非常值得的。]]></content>
+      <categories>
+        <category>随感</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+</search>
