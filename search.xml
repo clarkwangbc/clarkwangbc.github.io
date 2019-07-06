@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo + Github 博客搭建]]></title>
+    <url>%2F2019%2F07%2F06%2FHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[Hexo是一个基于Node.js的静态博客框架，安装简单，搭建方便。由于Hexo生成的是一个静态的网站，因此可以搭建在一些提供静态网站服务的地方，例如Github。所以整体来说这个轻量型的博客可以基本满足我的需求，但缺点就是不能随时更新博客，考虑到我的博客的更新频率，这也不会是太大的问题。 搭建步骤 Github个人网站 安装Node.js 和 Hexo 建立博客 发布文章 Github 个人网站在Github上新建一个仓库，仓库的名称取：用户名.github.io，例如我的用户名是clarkwangbc，因此这个仓库的名称就是clarkwangbc.github.io 然后需要讲Github与我的电脑连接起来，关于这一点，可以参考README.md中建立Git和Github的连接部分。 当然，确保你的电脑上安装了Git 安装Node.js 和 Hexo由于我的博客主要会在我的MacBook Pro上更新，因此以下的这些操作都是基于Mac的。 安装Node Version Manager (nvm) nvm 是一个开源的node.js多版本管理Bash工具，类似于Python中的pyenv工具，用于在Bash环境中随意切换已安装的node版本。目前nvm的版本是0.34.0，因此可以使用如下代码进行安装： 1curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash 或者是Wget 1wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash 具体可以参考官方指南。 安装Node.js 使用nvm安装最新的Node.js 1nvm install node nvm安装的可能不是Node官方推荐的稳定版本，因此建议参考官方推荐版本后安装： 1nvm install 10.16.0 安装Hexo 1npm install -g hexo-cli 建立博客安装hexo后，我们就可以建立我们的博客了。 首先我们建立一个Blog的文件夹，然后在此文件夹内初始化我们的博客： 1hexo init blog 然后我们可以简单看一下我们的博客，输入以下命令： 12hexo ghexo s 然后我们用浏览器打开 localhost:4000就可以看到我们的博客了。 当然这样的博客可能太简陋了，我们可以选择一个我们喜欢的主题，例如Next。 1git clone https://github.com/iissnan/hexo-theme-next themes/next 打开博客的根目录中的_config.yml文件，修改主题为next。 然后再打开themes/next/_config.yml文件，调整主题的各种参数，这里我把主题的风格改为Mist。 更换主题后，我们可以用如下命令来实时观看我们的修改效果： 1hexo s --debug 在确认没有问题后，我们可以将博客推送到Github上。不过在此之前，我们得先安装一个部署到Github上的工具： 1npm install hexo-deployer-git --save 然后就可以部署了 1hexo d 有时候为了方便，我们会将生成和部署一起使用： 1hexo g -d 成功后便可以在自己的Github Page上浏览了。 发布文章 在命令行中输入 1hexo n "article_name" 在博客根目录下source/_post中多出了一个叫article_name.md的文件，使用markdown的编辑器打开就可以进行书写。 书写完成后，命令行中输入： 1hexo g -d 便可推送了]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git简易指南]]></title>
+    <url>%2F2019%2F07%2F06%2FGit%E7%AE%80%E6%98%93%E6%8C%87%E5%8D%97%2F</url>
+    <content type="text"><![CDATA[安装Git 可以使用基础软件管理包: 1sudo apt-get install git 或者使用源码直接编译: 1sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev 更多的安装方式可以参考链接。 创建新仓库 创建新的文件夹，打开，然后执行以下命令创建新的git仓库。 1git init 检出仓库 执行以下命令以创建一个本地仓库的克隆版本： 1git clone /path/to/repository 如果是远端服务器上的仓库，你的命令会是这个样子： 1git clone username@host:/path/to/repository 工作流 你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 缓存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，指向你最近一次提交后的结果。 添加与提交 你可以计划改动（把它们添加到缓存区），使用如下命令： 12git add &lt;filename&gt;git add * 这是 git 基本工作流程的第一步；使用如下命令以实际提交改动： 1git commit -m &quot;代码提交信息&quot; 现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。 推送改动 你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库： 1git push origin master 其中可以把 master 换成你想要推送的任何分支。 如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加： 1git remote add origin &lt;server&gt; 如此你就能够将你的改动推送到所添加的服务器上去了。 分支 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。 创建一个叫做“feature_x”的分支，并切换过去： 1git checkout -b feature_x 切换回主分支： 1git checkout master 再把新建的分支删掉： 1git branch -d feature_x 除非你将分支推送到远端仓库，不然该分支就是不为他人所见的： 1git push origin &lt;branch&gt; 更新与合并 要更新你的本地仓库至最新改动，执行： 1git pull 以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动。要合并其他分支到你的当前分支（例如 master），执行： 1git merge &lt;branch&gt; 两种情况下，git 都会尝试去自动合并改动。不幸的是，自动合并并非次次都能成功，并可能导致 冲突（conflicts）。 这时候就需要你修改这些文件来人肉合并这些 冲突（conflicts） 了。改完之后，你需要执行如下命令以将它们标记为合并成功： 1git add &lt;filename&gt; 在合并改动之前，也可以使用如下命令查看： 1git diff &lt;source_branch&gt; &lt;target_branch&gt; 替换本地改动 假如你做错事，你可以使用如下命令替换掉本地改动： 1git checkout -- &lt;filename&gt; 此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到缓存区的改动，以及新文件，都不受影响。 假如你想要丢弃你所有的本地改动与提交，可以到服务器上获取最新的版本并将你本地主分支指向到它: 12git fetch origingit reset --hard origin/master 原文链接]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu 搜狗拼音输入法候选乱码]]></title>
     <url>%2F2019%2F07%2F05%2FUbuntu-%E6%90%9C%E7%8B%97%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95%E5%80%99%E9%80%89%E4%B9%B1%E7%A0%81%2F</url>
     <content type="text"><![CDATA[终端输入如下命令： 12cd ~/.configsudo rm -rf SogouPY* sogou* 然后注销即可(注意，这里必须是注销，不注销直接重启并不管用)]]></content>
