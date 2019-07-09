@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/07/09/Shadowsocks%E5%92%8CSwitchOmega%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2019-07-09T08:33:25.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/05/Ubuntu%E5%AE%89%E8%A3%85NVIDIA%E9%A9%B1%E5%8A%A8/</loc>
+    
+    <lastmod>2019-07-09T08:33:09.048Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/06/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2019-07-06T12:16:11.937Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2019-07-06T09:46:29.683Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/05/Ubuntu%E5%AE%89%E8%A3%85NVIDIA%E9%A9%B1%E5%8A%A8/</loc>
-    
-    <lastmod>2019-07-05T13:38:34.328Z</lastmod>
     
   </url>
   
