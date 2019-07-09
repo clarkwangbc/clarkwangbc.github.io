@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu18.04关闭图形界面]]></title>
+    <url>%2F2019%2F07%2F09%2FUbuntu18-04%E5%85%B3%E9%97%AD%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop 系统会提示 lightdm.service not loaded 但是事实上，Ubuntu 18.04 中需要使用更加麻烦的方法，需要设置后重新启动。 12sudo systemctl set-default multi-user.targetsudo reboot 重新开启图形界面如下： 12sudo systemctl set-default graphical.targetsudo reboot]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Shadowsocks和SwitchOmega的安装与配置]]></title>
     <url>%2F2019%2F07%2F09%2FShadowsocks%E5%92%8CSwitchOmega%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[shadowsocks 安装与配置 由于Shadowsocks没有我使用的服务的加密方式，因此需要使用Shadowsocks-libev，一个用C语言开发的Shadowsocks版本： 1sudo apt install shadowsocks-libev 修改配置文件。先创建或者打开一个配置文件 1sudo nano /etc/shadowsocks-libev/config.json 然后在打开的文件中填写相应的服务信息： 12345678&#123; &quot;server&quot;:[&quot;[::0]&quot;, &quot;0.0.0.0&quot;], &quot;server_port&quot;:8388, &quot;local_port&quot;:1080, &quot;password&quot;:&quot;barfoo!&quot;, &quot;timeout&quot;:60, &quot;method&quot;:&quot;aes-256-cfb&quot;&#125; 其中需要修改的是server, server_port, password和method。其中需要注意server的格式，这样才能同时适配ipv4和ipv6。 启动服务。在终端中输入 1ss-local -c /etc/shadowsocks-libev/config.json &amp; 其中&amp;表示在后台运行，可以去掉。 设置开机启动。我采用的方式是把该命令注册服务，首先创建并编辑文件： 1sudo nano /etc/systemd/system/shadowsocks.service 在文件中添加如下内容 1234567891011[Unit]Description=Shadowsocks Client ServiceAfter=network.target[Service]Type=simpleUser=rootExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/config.json[Install]WantedBy=multi-user.target 然后在终端中输入如下命令是配置生效： 1systemctl enable /etc/systemd/system/shadowsocks.service SwitchOmega的安装和配置 安装SwitchOmega。有两种方法，一种是在浏览器的插件商店中安装，但是由于chrome的插件商店往往无法访问，可以采用第二种手动安装的方式。手动安装可以到SwitchOmega的Github上下载，然后拖到chrome的插件页面中。不过这种方法不知道为什么我也没成功，提示说我下载的这个crx文件有问题？最后chrome是通过账号同步的方式自动同步我在别的电脑上安装的插件。 当然其实可以用Firefox，这个倒是没什么问题。 安装SwitchOmega后，打开它的配置界面，然后点击左侧的proxy。在右侧代理服务器中，修改代理协议为SOCKS5，代理服务器为127.0.0.1，代理端口为1080，然后别忘记点击左侧的应用选项。如下图所示： 然后点击左侧的auto switch，先点击规则列表设置，选择AutoProxy，在下面填写规则列表网址： https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt， 然后点击按钮立即更新情景模式，稍等一会后下面的规则列表正文将会出现下载的文本。 然后在上面的切换规则中，删除最上面两个默认的规则，在下面一栏第一条的情景模式中选择proxy，第二条选择直接连接。最后点击应用选项即可。如下图所示： 搞定以上内容后，我们现在可随便打开一个网址，例如scholar.google.com，然后点击插件栏中的SwitchOmega，切换至auto switch模式即可。]]></content>
