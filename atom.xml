@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-09T09:42:27.522Z</updated>
+  <updated>2019-08-13T12:42:01.387Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随机化完全区组设计 RCBD</title>
+    <link href="http://yoursite.com/2019/08/13/%E9%9A%8F%E6%9C%BA%E5%8C%96%E5%AE%8C%E5%85%A8%E5%8C%BA%E7%BB%84%E8%AE%BE%E8%AE%A1-RCBD/"/>
+    <id>http://yoursite.com/2019/08/13/随机化完全区组设计-RCBD/</id>
+    <published>2019-08-13T12:23:01.000Z</published>
+    <updated>2019-08-13T12:42:01.387Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基本定义和概念"><a href="#基本定义和概念" class="headerlink" title="基本定义和概念"></a>基本定义和概念</h2><ol><li><p><strong>讨厌因子</strong>（nuisance factor）是一个可能对响应产生影响的设计因子，但是我们对之并不感兴趣。</p></li><li><p>当讨厌因子有时是<strong>未知</strong>且<strong>不可控</strong>时，我们采用<strong>随机化</strong>处理；当讨厌因子是<strong>已知</strong>但<strong>不可控</strong>时，我们采用<strong>协方差分析</strong>；当讨厌因子是<strong>已知</strong>且<strong>可控</strong>时，我们采用<strong>区组化（blocking</strong>）设计。</p></li><li><p>随机化完全区组设计（randomized complete      block design）是指每一个区组内包含所有的处理。区组表示的是随机化约束。</p></li><li><p>RCBD 统计模型：</p><ul><li>效应模型 effect model</li></ul></li><li><p>​        $y<em>i = \mu+\tau_i+\beta_j+\epsilon</em>{i,j} \left{ \begin{array}{lr}i=1,2,…, a &amp;\ j=1,2,…,b\end{array}\right.$</p></li><li><ul><li><p>均值模型 </p><p>$y<em>i = \mu</em>{i,j}+\epsilon_{i,j}\left{ \begin{array}{lr}i=1,2,…, a &amp;\ j=1,2,…,b\end{array}\right.$</p></li></ul></li><li><ul><li><p>RCBD 方差分析等式</p><p>$SS = SS<em>{treatment}+SS</em>{blocks}+SS_E$</p><p>其中自由度分别是 $ab-1$，$a-1$，$(a-1)(b-1)$。</p></li></ul></li><li><p>对区组的均值进行方差检验，其中$F<em>0 = \frac{MS</em>{blocks}}{MS<em>E}$ 与$F</em>{a,a-1,(a-1)(b-1)}$ 进行比较似乎可以验证假设$H_0:\beta_j=0$ 。通常来说，方差分析F的检验只需要基于随机化就可以说明是合理的，无需正态性假设，但是这对比较区组的均值的检验却并不适用，实际上这里的F的比值是检验区组的均值的等式加随机化约束。但在实践中，F检验法可以作为研究区组变量效应的一种近似的方法，当这一比值较大时，可以说明区组因子有较大影响。</p></li><li>RCBD 是一种降噪设计技术，它能有效地增加数据中的信噪比，提高了处理均值比较的精度。</li></ol><h2 id="多重比较"><a href="#多重比较" class="headerlink" title="多重比较"></a>多重比较</h2><p>RCBD 多重比较的方法与标准的方差分析的方法类似，可以使用方差分析中任意一种多重比较的方法，只需要将其中的公式简单地用区组数（）代替单因子完全随机化设计的重复次数（）就可以了；此外，还要使用随机区组设计中误差的自由度数来代替完全随机化设计的误差自由度 。<img src="file:////Users/bingcheng/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/7BA3BFCE-6E84-7044-B065-2CFE0B5ED80C.png" alt="img"></p><h2 id="模型合适性检验"><a href="#模型合适性检验" class="headerlink" title="模型合适性检验"></a>模型合适性检验</h2><p>我们需要警惕那些由正态性假定、处理或者区组的不等的误差方差以及区组-处理交互作用引起的潜在问题。如同在完全随机化设计中那样，<strong>残差分析</strong>是用于这类诊断性检验的主要工作。</p><p>如果残差与预测值低是一条曲线，例如对于低的预测值，存在着产生负残差的趋势，对于中等的预测值，存在着产生正残差的趋势，而对于高预测值，则尊在产生负残差的趋势，则这类图像暗示着区组与处理间存在交互作用。</p><h2 id="随机完全化区组设计的其他方面"><a href="#随机完全化区组设计的其他方面" class="headerlink" title="随机完全化区组设计的其他方面"></a>随机完全化区组设计的其他方面</h2><ol><li><p>随机化区组模型的可加性：用于随机化区组设计的线性模型是<strong>可加</strong>的。</p></li><li><p>随机处理与区组：</p></li><li><ul><li>如果处理和区组是随机的，方法同样适用。不过在对结果进行解释时，需要做相应的更改。</li><li>在区组是随机的情况下，如果出现处理-区组的交互作用，则关于处理均值的检验不收交互作用的影响。这是因为出处理和误差的期望均方值<strong>二者</strong>都含有交互作用效应。</li></ul></li><li><p>样本量的选择：增加区组数会增大重复得到次数和误差的自由度，使得设计更加灵敏。关于随机化单因子设计的有关实验重复次数的方法仍然使用。只需注意自由度的问题。但增加区组数会增加实验成本，因此要权衡利弊，选择注意自由度的数值。</p></li><li><p>缺失值的估计：对于缺失值，一般有两种方法</p><ul><li>近似分析法：估计这一缺失值，并把它作为真实数据进行通常的方差分析，并将误差自由度减小1；但这一方法会产生有偏均方值，得出过多的显著性结论。</li><li>精确分析法：用一般回归的显著性检验法来精确分析</li></ul></li><li><p>一般回归的显著性检验法可以用来进行随机化完全区组设计的方差分析</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;基本定义和概念&quot;&gt;&lt;a href=&quot;#基本定义和概念&quot; class=&quot;headerlink&quot; title=&quot;基本定义和概念&quot;&gt;&lt;/a&gt;基本定义和概念&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;讨厌因子&lt;/strong&gt;（nuisance factor）是一个
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="实验设计" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu18.04关闭图形界面</title>
