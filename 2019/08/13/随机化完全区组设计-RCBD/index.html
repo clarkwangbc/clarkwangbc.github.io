@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="诗酒趁年华">
 <meta property="og:description" content="基本定义和概念 讨厌因子（nuisance factor）是一个可能对响应产生影响的设计因子，但是我们对之并不感兴趣。 当讨厌因子有时是未知且不可控时，我们采用随机化处理；当讨厌因子是已知但不可控时，我们采用协方差分析；当讨厌因子是已知且可控时，我们采用区组化（blocking）设计。 随机化完全区组设计（randomized complete      block design）是指每一个区组内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-13T12:54:41.890Z">
+<meta property="og:updated_time" content="2019-08-13T12:56:58.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随机化完全区组设计 RCBD">
 <meta name="twitter:description" content="基本定义和概念 讨厌因子（nuisance factor）是一个可能对响应产生影响的设计因子，但是我们对之并不感兴趣。 当讨厌因子有时是未知且不可控时，我们采用随机化处理；当讨厌因子是已知但不可控时，我们采用协方差分析；当讨厌因子是已知且可控时，我们采用区组化（blocking）设计。 随机化完全区组设计（randomized complete      block design）是指每一个区组内">
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-08-13 20:23:01 / 修改时间：20:54:41" itemprop="dateCreated datePublished" datetime="2019-08-13T20:23:01+08:00">2019-08-13</time>
+              <time title="创建时间：2019-08-13 20:23:01 / 修改时间：20:56:58" itemprop="dateCreated datePublished" datetime="2019-08-13T20:23:01+08:00">2019-08-13</time>
             </span>
           
 
@@ -1271,6 +1271,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
