@@ -102,12 +102,10 @@
 <meta property="og:site_name" content="诗酒趁年华">
 <meta property="og:description" content="基本定义和概念 讨厌因子（nuisance factor）是一个可能对响应产生影响的设计因子，但是我们对之并不感兴趣。  当讨厌因子有时是未知且不可控时，我们采用随机化处理；当讨厌因子是已知但不可控时，我们采用协方差分析；当讨厌因子是已知且可控时，我们采用区组化（blocking）设计。  随机化完全区组设计（randomized complete      block design）是指每一个区">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="file:////Users/bingcheng/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/7BA3BFCE-6E84-7044-B065-2CFE0B5ED80C.png">
-<meta property="og:updated_time" content="2019-08-13T12:42:01.387Z">
+<meta property="og:updated_time" content="2019-08-13T12:50:47.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随机化完全区组设计 RCBD">
 <meta name="twitter:description" content="基本定义和概念 讨厌因子（nuisance factor）是一个可能对响应产生影响的设计因子，但是我们对之并不感兴趣。  当讨厌因子有时是未知且不可控时，我们采用随机化处理；当讨厌因子是已知但不可控时，我们采用协方差分析；当讨厌因子是已知且可控时，我们采用区组化（blocking）设计。  随机化完全区组设计（randomized complete      block design）是指每一个区">
-<meta name="twitter:image" content="file:////Users/bingcheng/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/7BA3BFCE-6E84-7044-B065-2CFE0B5ED80C.png">
 
 
 
@@ -410,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-08-13 20:23:01 / 修改时间：20:42:01" itemprop="dateCreated datePublished" datetime="2019-08-13T20:23:01+08:00">2019-08-13</time>
+              <time title="创建时间：2019-08-13 20:23:01 / 修改时间：20:50:47" itemprop="dateCreated datePublished" datetime="2019-08-13T20:23:01+08:00">2019-08-13</time>
             </span>
           
 
@@ -479,18 +477,16 @@
 <li>效应模型 effect model</li>
 </ul>
 </li>
-<li><p>​        $y<em>i = \mu+\tau_i+\beta_j+\epsilon</em>{i,j} \left{ \begin{array}{lr}i=1,2,…, a &amp;\ j=1,2,…,b\end{array}\right.$</p>
+<li><p>​        <script type="math/tex">y_i = \mu+\tau_i+\beta_j+\epsilon_{i,j} \left\{ \begin{array}{lr}i=1,2,..., a &\\ j=1,2,...,b\end{array}\right.</script></p>
 </li>
 <li><ul>
 <li><p>均值模型 </p>
-<p>$y<em>i = \mu</em>{i,j}+\epsilon_{i,j}\left{ \begin{array}{lr}i=1,2,…, a &amp;\ j=1,2,…,b\end{array}\right.$</p>
-</li>
+<script type="math/tex; mode=display">y_i = \mu_{i,j}+\epsilon_{i,j}\left\{ \begin{array}{lr}i=1,2,..., a &\\ j=1,2,...,b\end{array}\right.</script></li>
 </ul>
 </li>
 <li><ul>
 <li><p>RCBD 方差分析等式</p>
-<p>$SS = SS<em>{treatment}+SS</em>{blocks}+SS_E$</p>
-<p>其中自由度分别是 $ab-1$，$a-1$，$(a-1)(b-1)$。</p>
+<script type="math/tex; mode=display">SS = SS_{treatment}+SS_{blocks}+SS_E</script><p>其中自由度分别是 $ab-1$，$a-1$，$(a-1)(b-1)$。</p>
 </li>
 </ul>
 </li>
@@ -498,7 +494,7 @@
 </li>
 <li>RCBD 是一种降噪设计技术，它能有效地增加数据中的信噪比，提高了处理均值比较的精度。</li>
 </ol>
-<h2 id="多重比较"><a href="#多重比较" class="headerlink" title="多重比较"></a>多重比较</h2><p>RCBD 多重比较的方法与标准的方差分析的方法类似，可以使用方差分析中任意一种多重比较的方法，只需要将其中的公式简单地用区组数（）代替单因子完全随机化设计的重复次数（）就可以了；此外，还要使用随机区组设计中误差的自由度数来代替完全随机化设计的误差自由度 。<img src="file:////Users/bingcheng/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/7BA3BFCE-6E84-7044-B065-2CFE0B5ED80C.png" alt="img"></p>
+<h2 id="多重比较"><a href="#多重比较" class="headerlink" title="多重比较"></a>多重比较</h2><p>RCBD 多重比较的方法与标准的方差分析的方法类似，可以使用方差分析中任意一种多重比较的方法，只需要将其中的公式简单地用区组数（$b$）代替单因子完全随机化设计的重复次数（$n$）就可以了；此外，还要使用随机区组设计中误差的自由度数$(a-1)(b-1)$来代替完全随机化设计的误差自由度 $[a(n-1)]$。</p>
 <h2 id="模型合适性检验"><a href="#模型合适性检验" class="headerlink" title="模型合适性检验"></a>模型合适性检验</h2><p>我们需要警惕那些由正态性假定、处理或者区组的不等的误差方差以及区组-处理交互作用引起的潜在问题。如同在完全随机化设计中那样，<strong>残差分析</strong>是用于这类诊断性检验的主要工作。</p>
 <p>如果残差与预测值低是一条曲线，例如对于低的预测值，存在着产生负残差的趋势，对于中等的预测值，存在着产生正残差的趋势，而对于高预测值，则尊在产生负残差的趋势，则这类图像暗示着区组与处理间存在交互作用。</p>
 <h2 id="随机完全化区组设计的其他方面"><a href="#随机完全化区组设计的其他方面" class="headerlink" title="随机完全化区组设计的其他方面"></a>随机完全化区组设计的其他方面</h2><ol>
