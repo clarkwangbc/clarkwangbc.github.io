@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop  系统会提示 lightdm.service not loaded">
+  <meta name="description" content="在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop 系统会提示 lightdm.service not loaded">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu18.04关闭图形界面">
 <meta property="og:url" content="http://yoursite.com/2019/07/09/Ubuntu18-04关闭图形界面/index.html">
 <meta property="og:site_name" content="诗酒趁年华">
-<meta property="og:description" content="在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop  系统会提示 lightdm.service not loaded">
+<meta property="og:description" content="在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop 系统会提示 lightdm.service not loaded">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-09T09:42:27.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu18.04关闭图形界面">
-<meta name="twitter:description" content="在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop  系统会提示 lightdm.service not loaded">
+<meta name="twitter:description" content="在安装CUDA的时候，发现如果不关闭图形界面将无法安装。 但是网上提供的下述方法似乎在18.04失效了： 1sudo service lightdm stop 系统会提示 lightdm.service not loaded">
 
 
 
@@ -468,16 +468,12 @@
         <p>在安装CUDA的时候，发现如果不关闭图形界面将无法安装。</p>
 <p>但是网上提供的下述方法似乎在18.04失效了：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service lightdm stop</span><br></pre></td></tr></table></figure>
-
 <p>系统会提示 <code>lightdm.service not loaded</code></p>
 <a id="more"></a>
-
 <p>但是事实上，Ubuntu 18.04 中需要使用更加麻烦的方法，需要设置后重新启动。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">set</span>-default multi-user.target</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
 <p>重新开启图形界面如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">set</span>-default graphical.target</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -1198,6 +1194,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 

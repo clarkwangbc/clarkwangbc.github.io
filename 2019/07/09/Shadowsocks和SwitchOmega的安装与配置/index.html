@@ -471,36 +471,26 @@
         <h2 id="shadowsocks-安装与配置"><a href="#shadowsocks-安装与配置" class="headerlink" title="shadowsocks 安装与配置"></a>shadowsocks 安装与配置</h2><ol>
 <li><p>由于Shadowsocks没有我使用的服务的加密方式，因此需要使用Shadowsocks-libev，一个用C语言开发的Shadowsocks版本：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install shadowsocks-libev</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <a id="more"></a>
-
-<ol start="2">
+<ol>
 <li><p>修改配置文件。先创建或者打开一个配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/shadowsocks-libev/config.json</span><br></pre></td></tr></table></figure>
-
 <p>然后在打开的文件中填写相应的服务信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:[&quot;[::0]&quot;, &quot;0.0.0.0&quot;],</span><br><span class="line">    &quot;server_port&quot;:8388,</span><br><span class="line">    &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;password&quot;:&quot;barfoo!&quot;,</span><br><span class="line">    &quot;timeout&quot;:60,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>其中需要修改的是server, server_port, password和method。其中需要注意server的格式，这样才能同时适配ipv4和ipv6。</p>
 </li>
 <li><p>启动服务。在终端中输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss-local -c /etc/shadowsocks-libev/config.json &amp;</span><br></pre></td></tr></table></figure>
-
 <p>其中<code>&amp;</code>表示在后台运行，可以去掉。</p>
 </li>
 <li><p>设置开机启动。我采用的方式是把该命令注册服务，首先创建并编辑文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/systemd/system/shadowsocks.service</span><br></pre></td></tr></table></figure>
-
 <p>在文件中添加如下内容</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks Client Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/config.json</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
 <p>然后在终端中输入如下命令是配置生效：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> /etc/systemd/system/shadowsocks.service</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
 <h2 id="SwitchOmega的安装和配置"><a href="#SwitchOmega的安装和配置" class="headerlink" title="SwitchOmega的安装和配置"></a>SwitchOmega的安装和配置</h2><ol>
@@ -1273,6 +1263,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 
